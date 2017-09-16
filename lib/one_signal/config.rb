@@ -16,7 +16,7 @@ module OneSignal
     # Example
     #
     #    OneSignal.configure do |config|
-    #      config.aoo_id = "app_id"
+    #      config.app_id = "app_id"
     #    end
     def configure
       yield configuration
@@ -75,8 +75,12 @@ module OneSignal
       end
     end
 
+    option :app_id, default: lambda { ENV['ONE_SIGNAL_APP_ID'] }
+    option :uri, default: lambda { || ENV['ONE_SIGNAL_URI'] || 'https://onesignal.com/api/v1/notifications' }
+    
     def options
       self.class.options
     end
+
   end
 end

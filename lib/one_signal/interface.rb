@@ -4,15 +4,18 @@ require 'net/http'
 
 module OneSignal
   class Interface
-    def initialize
-      @app_id = "1c00fa72-c932-410d-85be-20213f89328b"
-      @uri = URI.parse('https://onesignal.com/api/v1/notifications')
+    def initialize(options)
+      @options = options
+      @app_id = @options.app_id
+      @uri = URI.parse(@options.uri)
       @http = Net::HTTP.new(@uri.host, @uri.port)
       @http.use_ssl = true
     end
 
-    def send_to_specific(user_ids)
-      params = {'include_player_ids' => user_ids}
+    def send_to_specific(user_ids, title, content)
+      params = { 'include_player_ids' => user_ids,
+                 'headings' => {'es': title},
+                 'content' => {'es': content} }
       send_notification params
     end
 
@@ -23,7 +26,7 @@ module OneSignal
                                     'Authorization' => "Basic NGEwMGZmMjItY2NkNy0xMWUzLTk5ZDUtMDAwYzI5NDBlNjJj")
       request.body = params.as_json.to_json
       response = @http.request(request)
-      puts response.body
+      return response.body
     end
   end
 end
