@@ -14,8 +14,8 @@ module OneSignal
 
     def send_to_specific(user_ids, title, content)
       params = { 'include_player_ids' => user_ids,
-                 'headings' => {'es': title},
-                 'content' => {'es': content} }
+                 'headings' => {'en' => title},
+                 'content' => {'en'=> content} }
       send_notification params
     end
 
