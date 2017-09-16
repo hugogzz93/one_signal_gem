@@ -1,7 +1,6 @@
-
-module Restforce
+# Shamelessly pulled from http://restforce.org/
+module OneSignal
   class << self
-    attr_writer :log
 
     # Returns the current Configuration
     #
