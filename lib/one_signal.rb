@@ -1,4 +1,5 @@
 require "one_signal/version"
+require "one_signal/config"
 require "one_signal/interface"
 
 module OneSignal
