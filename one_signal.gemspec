@@ -10,7 +10,6 @@ Gem::Specification.new do |spec|
   spec.email         = ["pinelo93@gmail.com"]
 
   spec.summary       = %q{Interaface to OneSignal's API}
-  spec.homepage      = "git@github.com:hugogzz93/one_signal_gem.git"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
