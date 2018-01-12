@@ -1,4 +1,4 @@
-require 'URI'
+require 'uri'
 require 'net/http'
 
 
